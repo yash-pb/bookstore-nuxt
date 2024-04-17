@@ -1,10 +1,15 @@
+<script setup>
+const openSidebar = () => {
+    document.querySelector(".sidebar").classList.toggle("hidden");
+}
+</script>
 <template>
      <header class="row">
         <nav class="bg-gray-200">
             <div class="mx-auto container px-2 sm:px-6 lg:px-8">
                 <div class="relative flex h-16 items-center justify-between">
                     <div class="absolute inset-y-0 left-0 flex items-center lg:hidden">
-                        <i class="fa-solid fa-bars relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" onclick="openSidebar()"></i>
+                        <i class="fa-solid fa-bars relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" @click="openSidebar"></i>
                     </div>
                     <div class="flex flex-1 items-center justify-center lg:items-stretch lg:justify-start">
                         <div class="flex flex-shrink-0 items-center">
@@ -45,7 +50,7 @@
                         <!-- <a href="{{ route('store.index') }}"> -->
                             <h1 class="font-bold text-gray-200 ml-3">Book Store</h1>
                         <!-- </a> -->
-                        <span class="bi bi-x cursor-pointer ml-28 lg:hidden" onclick="openSidebar()">&#10005;</span>
+                        <span class="bi bi-x cursor-pointer ml-28 lg:hidden" @click="openSidebar">&#10005;</span>
                     </div>
                     <div class="mt-2 bg-gray-600 h-[1px]"></div>
                 </div>
