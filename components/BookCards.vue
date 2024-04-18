@@ -1,17 +1,26 @@
+<script setup>
+const props = defineProps({
+  book: Object
+})
+
+</script>
+
 <template>
     <div>
         <div class="max-w-sm rounded-lg overflow-hidden shadow-xl">
-            <img class="w-full h-48 object-cover" src="https://picsum.photos/200" alt="book cover">
+            <img class="w-full h-48 object-cover" :src="book.cover_image" alt="book cover">
             <div class="px-6 py-4">
                 <div class="flex items-center justify-between mb-2">
-                    <div class="font-bold text-xl">Book Name</div>
-                    <Favorite />
+                    <div class="font-bold text-xl">{{ book.name }}</div>
+                    <Favorite :bookId="book.id" :isFavorite="false" />
                 </div>
                 <p class="text-gray-700 text-base truncate ...">
-                    Book Description
+                    {{ book.description }}
                 </p>
                 <div class="pt-4 pb-2">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Read More</a>
+                    <NuxtLink :to="'/books/'+book.id" :class="'hover:text-blue-400 text-blue-800'">
+                        Read More
+                    </NuxtLink>
                 </div>
             </div>
         </div>
