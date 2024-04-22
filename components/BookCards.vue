@@ -5,7 +5,7 @@ const userStore = useUserStore();
 const props = defineProps({
   book: Object
 })
-
+console.log('props => ', props.book);
 </script>
 
 <template>
