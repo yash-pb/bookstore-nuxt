@@ -1,0 +1,3 @@
+<template>
+    Fav
+</template>

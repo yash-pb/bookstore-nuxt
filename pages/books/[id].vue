@@ -16,6 +16,7 @@ onBeforeMount(async () => {
 const book = computed(() => {
     return bookStore.book.value;
 });
+
 </script>
 <template>
     <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -26,7 +27,7 @@ const book = computed(() => {
             </div>
             <div class="flex mb-4">
                 <div class="w-1/2 mt-3 flex flex-row md:flex-row">
-                    <Favorite/>
+                    <Favorite :bookId="book.data.id" :isFavorite="book.data.favorite" />
                 </div>
             </div>
         </div>

@@ -7,11 +7,13 @@ const props = defineProps({
   isFavorite: Boolean
 })
 
-// const faorite = isFavorite;
 const favorite = ref(props.isFavorite);
 
-const toggleFavorite = (e) => {
-    favorite.value = !favorite.value;
+const toggleFavorite = async (e) => {
+    let response = await bookStore.favoriteBook(e.target.getAttribute('data-id'));
+    if(response) {
+        favorite.value = !favorite.value;
+    }
 }
 </script>
 <template>

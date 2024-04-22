@@ -1,4 +1,7 @@
 <script setup>
+import { useUserStore } from "../stores/UserStore";
+const userStore = useUserStore();
+
 const props = defineProps({
   book: Object
 })
@@ -12,7 +15,7 @@ const props = defineProps({
             <div class="px-6 py-4">
                 <div class="flex items-center justify-between mb-2">
                     <div class="font-bold text-xl">{{ book.name }}</div>
-                    <Favorite :bookId="book.id" :isFavorite="false" />
+                    <Favorite :bookId="book.id" :isFavorite="book.favorite" />
                 </div>
                 <p class="text-gray-700 text-base truncate ...">
                     {{ book.description }}
