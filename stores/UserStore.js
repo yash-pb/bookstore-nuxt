@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { getData, setData, clear } from 'nuxt-storage/local-storage';
+import { getData, setData } from 'nuxt-storage/local-storage';
 
 export const useUserStore = defineStore('userStore', () => {
   

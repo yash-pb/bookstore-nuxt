@@ -55,13 +55,13 @@ const userName = computed(() => {
                             </svg>
                         </button>
                     </div>
-                    <div class="lg:block flex space-x-4">
+                    <div class="lg:block hidden space-x-4">
                         <span>{{ userName }}</span>
                         <NuxtLink v-if="userName" to="/logout" class="text-blue-800 hover:text-blue-400">Logout</NuxtLink>
                         <NuxtLink v-else="userName" to="/login" class="text-blue-800 hover:text-blue-400">Login</NuxtLink>
 
                         <NuxtLink v-if="userName" to="/favorite-books" class="font-medium text-blue-600 hover:underline">Favorite Books</NuxtLink>
-                        <!-- <a href="{{ route('user.edit.profile') }}" class="font-medium text-blue-600 hover:underline mr-10">Edit Profile</a> -->
+                        <NuxtLink v-if="userName" to="/edit-profile" class="font-medium text-blue-600 hover:underline">Edit Profile</NuxtLink>
                     </div>
                 </div>
             </div>
@@ -78,32 +78,27 @@ const userName = computed(() => {
                     <div class="mt-2 bg-gray-600 h-[1px]"></div>
                 </div>
 
-                <!-- @if (Auth::user()) -->
-                <!-- <a href="{{ route('user.favorite') }}" class="no-underline font-medium text-blue-600"> -->
+                <NuxtLink v-if="userName" to="/favorite-books" class="font-medium text-blue-600 hover:underline">
                     <div class="flex p-2 items-center rounded-md duration-300 cursor-pointer hover:bg-blue-600 text-white">
                         <span class="text-[15px] ml-4 text-gray-200 font-bold">Favorite Books</span>
                     </div>
-                <!-- </a> -->
-
-                <!-- <a href="{{ route('user.edit.profile') }}" class="no-underline font-medium text-blue-600"> -->
+                </NuxtLink>
+                
+                <NuxtLink v-if="userName" to="/edit-profile" class="font-medium text-blue-600 hover:underline">
                     <div class="flex p-2 items-center rounded-md duration-300 cursor-pointer hover:bg-blue-600 text-white">
                         <span class="text-[15px] ml-4 text-gray-200 font-bold">Edit Profile</span>
                     </div>
-                <!-- </a> -->
-
-                <!-- <a href="{{ route('user.logout') }}" class="no-underline font-medium text-blue-600"> -->
+                </NuxtLink>
+                <NuxtLink v-if="userName" to="/logout" class="text-blue-800 hover:text-blue-400">
                     <div class="flex p-2 items-center rounded-md duration-300 cursor-pointer hover:bg-blue-600 text-white">
                         <span class="text-[15px] ml-4 text-gray-200 font-bold">Log out</span>
                     </div>
-                <!-- </a> -->
-                <!-- @else   -->
-                <!-- <a href="{{ route('user.login') }}" class="no-underline font-medium text-blue-600"> -->
+                </NuxtLink>
+                <NuxtLink v-else="userName" to="/login" class="text-blue-800 hover:text-blue-400">
                     <div class="flex p-2 items-center rounded-md duration-300 cursor-pointer hover:bg-blue-600 text-white">
                         <span class="text-[15px] ml-4 text-gray-200 font-bold">Log in</span>
                     </div>
-                <!-- </a> -->
-                <!-- @endif -->
-
+                </NuxtLink>
             </div>
         </nav>
     </header>
